@@ -1,0 +1,380 @@
+#N canvas 498 115 1354 1284 10;
+#X declare -lib tof;
+#X obj 241 845 *~;
+#X obj 256 705 vsl 30 128 0 1 0 0 empty empty Master_gain 0 -8 0 8
+-262144 -1 -1 9400 1;
+#X obj 54 702 pddp/dsp;
+#X obj 241 872 dac~;
+#X text 273 872 Main DAC;
+#X obj 59 201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 70 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 81 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 93 269 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 104 290 5 0 0 0 - - -;
+#X floatatom 116 313 5 0 0 0 - - -;
+#X obj 59 343 scs_melody;
+#X obj 263 554 scs_pulse;
+#X obj 263 508 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 314 529 5 0 0 0 - - -;
+#X obj 58 575 scs_reverb;
+#X obj 115 531 vsl 16 35 0 1 0 0 empty empty mix 0 -8 0 8 -262144 -1
+-1 1700 1;
+#X obj 774 215 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X symbolatom 785 239 20 0 0 0 - - -;
+#X obj 796 266 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 819 331 vsl 16 35 0 1 0 0 empty empty dry 0 -8 0 8 -262144 -1
+-1 3400 1;
+#X obj 774 378 scs_sample;
+#X text 76 199 play;
+#X text 141 290 max pitch (150 - 1500);
+#X text 155 312 max duration (50 - ???);
+#X floatatom 59 374 5 0 0 0 - - -;
+#X obj 485 325 scs_chord;
+#X floatatom 485 225 5 0 0 0 - - -;
+#X floatatom 510 247 5 0 0 0 - - -;
+#X obj 536 281 vsl 16 35 0 1 0 0 empty empty xfade 0 -8 0 8 -262144
+-1 -1 0 1;
+#X floatatom 263 580 5 0 0 0 - - -;
+#X text 767 195 SAMPLE PLAYBACK;
+#X text 814 264 loop on/off;
+#X floatatom 808 293 5 0 0 0 - - -;
+#X text 844 294 delay (s);
+#X obj 841 331 vsl 16 35 0 1 0 0 empty empty wet 0 -8 0 8 -262144 -1
+-1 1900 1;
+#X text 793 211 play;
+#X text 54 489 REVERB;
+#X text 35 555 audio in;
+#X text 282 506 on/off;
+#X text 771 395 outputs audio signal;
+#X text 54 596 outputs audio signal;
+#X text 260 600 outputs numbers (connect to gain controls);
+#X text 548 325 xfade between two frequencies;
+#X text 482 344 outputs audio signal;
+#X text 55 392 outputs frequency numbers;
+#X obj 589 598 scs_delay;
+#X text 590 486 DELAY;
+#X text 552 576 audio in;
+#X floatatom 606 521 5 0 0 0 - - -;
+#X obj 648 553 vsl 16 35 0 1 0 0 empty empty delay 0 -8 0 8 -262144
+-1 -1 0 1;
+#X text 603 503 delay time (s);
+#X text 587 615 outputs audio signal;
+#X obj 932 510 vsl 16 35 0 1 0 0 empty empty gain 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 917 554 *~;
+#X obj 784 528 phasor~;
+#X text 781 478 OSCILLATORS;
+#X obj 784 550 cycle~;
+#X obj 784 506 osc~;
+#X text 54 454 EFFECTS-----------------------------------------------------
+;
+#X text 414 454 ---------------------------------------------------
+;
+#X text 703 162 ---------------------------------------------------
+;
+#X text 343 162 AUDIO SOURCES ----------------------------------------------
+;
+#X text 344 195 SIMPLE OSCILLATOR;
+#X obj 362 278 vsl 16 35 0 1 0 0 empty empty gain 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 347 322 *~;
+#X floatatom 347 223 5 0 0 0 - - -;
+#X text 483 195 OSCILLATOR XFade;
+#X text 55 163 RANDOM MELODY GENERATOR;
+#X text 52 405 send these values to an oscillator;
+#X text 1009 162 ----------------;
+#X text 914 478 GAIN CONTROL;
+#X obj 347 247 osc~;
+#X text 349 530 rate (ms);
+#X obj 623 553 vsl 16 35 0 1 0 0 empty empty raw 0 -8 0 8 -262144 -1
+-1 0 1;
+#X text 781 456 BASICS-----------------------------;
+#X text 1019 457 EXTRAS-----------------------------;
+#X obj 1020 551 scs_filechooser;
+#X text 1017 482 RANDOM FILE CHOOSER;
+#X obj 1020 521 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1107 530 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X symbolatom 1020 598 30 0 0 0 - - -;
+#X text 1016 502 2 Pick a file;
+#X text 1128 527 1 Set folder;
+#X text 915 238 samples/bell1.wav;
+#X text 259 487 TREMOLO (amplitude modulation);
+#X obj 1030 576 print;
+#X obj 728 -31 maxlib/scale 0 1 0 10;
+#X obj 1065 -148 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144
+-1 -1;
+#X obj 728 -176 * 10;
+#X floatatom 728 -153 5 0 0 0 - - -;
+#X floatatom 728 -8 5 0 0 0 - - -;
+#X text 1061 -133 bang;
+#X text 764 -176 Multiplication (magnification);
+#X text 796 -139 Other operators;
+#X obj 798 -119 +;
+#X obj 827 -119 -;
+#X obj 856 -119 * -1;
+#X text 889 -120 etc.;
+#X text 726 -219 Mathematical Operators -------------------;
+#X text 725 -252 SCALING DATA;
+#X floatatom 728 75 5 0 0 0 - - -;
+#X text 59 87 RAW VALUES------------^;
+#X floatatom 374 -46 5 0 0 0 - - -;
+#X obj 374 -16 vsl 15 75 0 1 0 0 empty empty A0 0 85 0 10 -262144 -1
+-1 4516 1;
+#X obj 66 2 vsl 15 60 0.03 0.84 0 0 empty empty A0 0 69 0 10 -262144
+-1 -1 1248 1;
+#X obj 121 1 vsl 15 60 0.03 0.84 0 0 empty empty A1 0 69 0 10 -262144
+-1 -1 0 1;
+#X obj 177 2 vsl 15 60 0.03 0.84 0 0 empty empty A2 0 69 0 10 -262144
+-1 -1 0 1;
+#N canvas 36 176 499 396 efficient 0;
+#X obj 6 7 inlet;
+#X obj 6 50 outlet;
+#X obj 54 50 inlet;
+#X obj 54 93 outlet;
+#X obj 103 93 inlet;
+#X obj 103 136 outlet;
+#X obj 60 290 receive ARDUINO_TEST_RESET;
+#X obj 6 28 mapping/resample 75;
+#X obj 54 71 mapping/resample 75;
+#X obj 103 114 mapping/resample 75;
+#X connect 0 0 7 0;
+#X connect 2 0 8 0;
+#X connect 4 0 9 0;
+#X connect 6 0 7 0;
+#X connect 6 0 8 0;
+#X connect 6 0 9 0;
+#X connect 7 0 1 0;
+#X connect 8 0 3 0;
+#X connect 9 0 5 0;
+#X restore 66 -53 pd efficient values;
+#X obj 66 -132 arduino 2;
+#X msg 77 -251 close;
+#X msg 76 -228 devices;
+#X msg 66 -274 open \$1;
+#X obj 66 -105 route analog;
+#X obj 66 -80 route 0 1 2;
+#X obj 66 -296 hradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 3;
+#X text 67 -329 ARDUINO CONNECT;
+#X text 70 -313 0;
+#X text 84 -313 1;
+#X text 99 -313 2;
+#X text 115 -313 3;
+#X msg 84 -160 analogIns 0 1;
+#N canvas 162 133 610 460 serin 0;
+#X obj 59 337 outlet;
+#X obj 59 266 trigger bang anything;
+#X obj 201 286 list;
+#X obj 60 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 0 5 9 1
+12 -262130 -1 -1 1 1;
+#X obj 75 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 1 5 9 1
+12 -262130 -1 -1 0 1;
+#X obj 90 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 2 5 9 1
+12 -262130 -1 -1 0 1;
+#X obj 105 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 3 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 120 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 4 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 135 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 5 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 150 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 6 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 165 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 7 5 9
+1 12 -262130 -1 -1 0 1;
+#X msg 59 210 analogIns \$1 \$2;
+#X msg 35 106 0 \$1;
+#X msg 70 106 1 \$1;
+#X msg 105 106 2 \$1;
+#X msg 140 106 3 \$1;
+#X msg 175 106 4 \$1;
+#X msg 210 106 5 \$1;
+#X msg 245 106 6 \$1;
+#X msg 280 106 7 \$1;
+#X msg 202 307 set \$1 \$2 \$3;
+#X connect 1 0 0 0;
+#X connect 1 1 2 0;
+#X connect 2 0 20 0;
+#X connect 3 0 12 0;
+#X connect 4 0 13 0;
+#X connect 5 0 14 0;
+#X connect 6 0 15 0;
+#X connect 7 0 16 0;
+#X connect 8 0 17 0;
+#X connect 9 0 18 0;
+#X connect 10 0 19 0;
+#X connect 11 0 1 0;
+#X connect 12 0 11 0;
+#X connect 13 0 11 0;
+#X connect 14 0 11 0;
+#X connect 15 0 11 0;
+#X connect 16 0 11 0;
+#X connect 17 0 11 0;
+#X connect 18 0 11 0;
+#X connect 19 0 11 0;
+#X connect 20 0 0 0;
+#X coords 0 -1 1 1 120 16 1 60 60;
+#X restore 84 -182 pd serin;
+#X obj 393 -18 s A0;
+#X obj 728 -199 r A0;
+#X obj 1065 -199 r A0;
+#X obj 728 -56 r A0;
+#X obj 728 27 r A0;
+#X obj 1065 -173 threshold 0.8 1 0.8 1;
+#X obj 728 52 maxlib/scale 0 1 200 1200;
+#X text 770 -9 map (0 \, 1) to (0 \, 10);
+#X floatatom 80 -27 5 0 0 0 - - -;
+#X floatatom 132 -28 5 0 0 0 - - -;
+#X floatatom 189 -27 5 0 0 0 - - -;
+#X text 771 74 map (0 \, 1) to (200 \, 1200);
+#X obj 374 -193 maxlib/scale 0 0.33 0 1;
+#X obj 428 -119 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X floatatom 463 -118 5 2 20 0 - - -;
+#X text 425 -138 smoothing on/off;
+#X text 132 -297 Step 2: Select Port;
+#X text 130 -228 Step 1: Determine port;
+#X text 125 -251 comment;
+#X text 500 -123 amount (default 3);
+#X text 85 -202 Step 3: Enable analogIns;
+#X text 368 -249 CALIBRATE YOUR DATA;
+#X text 368 -219 Option 1: Scale it ------------------------;
+#N canvas 1897 584 450 300 calibrate 0;
+#X obj -13 77 maxlib/scale 0 0.33 0 1;
+#X obj 151 173 switch 2;
+#X obj 151 123 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 151 148 + 1;
+#X obj 196 149 average 3;
+#X floatatom 247 124 5 2 20 0 - - -;
+#X obj 151 204 outlet;
+#X obj -13 37 inlet;
+#X obj 151 31 inlet;
+#X obj 272 31 inlet;
+#X text -14 15 data;
+#X text 149 12 smoothing on/off;
+#X text 269 12 smoothing amount;
+#X obj 163 67 loadbang;
+#X msg 163 90 0;
+#X connect 0 0 1 1;
+#X connect 0 0 4 0;
+#X connect 1 0 6 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 2;
+#X connect 5 0 4 1;
+#X connect 7 0 0 0;
+#X connect 8 0 2 0;
+#X connect 9 0 5 0;
+#X connect 13 0 14 0;
+#X connect 14 0 2 0;
+#X restore 394 -89 pd calibrate;
+#X text 373 80 CALIBRATED VALUES--------^;
+#X text 368 -155 Option 2: Scale and Smooth it -------------;
+#X text 1063 -251 THRESHOLDS;
+#X obj 1186 -4 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 1182 11 bang;
+#X obj 1063 -55 r A0;
+#X obj 1063 -29 threshold 0.8 1 0.8 1;
+#X text 1061 -76 Recedes below Threshold -----------;
+#X text 1063 -219 Exceeds Threshold ------------------;
+#X text 55 114 -----------------------------------------------------------
+;
+#X text 410 114 -----------------------------------------------------------
+;
+#X text 765 114 -----------------------------------------------------------
+;
+#X text 1119 114 -------------------------------;
+#X obj 1087 -148 s trigger_up;
+#X obj 1212 -4 s trigger_down;
+#X text 726 -76 Mapping/Scaling --------------------------;
+#X text 125 704 Turn on DSP;
+#X text 409 667 ---------------------------------------------------
+;
+#X text 49 667 AUDIO OUT --------------------------------------------------
+;
+#X text 716 667 ---------------------------------------------------
+;
+#X text 1022 667 ----------------------------------------------;
+#X text 87 222 re-pick pitches;
+#X text 99 244 re-pick rhythm;
+#X text 111 267 re-pick both;
+#X connect 0 0 3 0;
+#X connect 0 0 3 1;
+#X connect 1 0 0 1;
+#X connect 5 0 11 0;
+#X connect 6 0 11 1;
+#X connect 7 0 11 2;
+#X connect 8 0 11 3;
+#X connect 9 0 11 4;
+#X connect 10 0 11 5;
+#X connect 11 0 25 0;
+#X connect 12 0 30 0;
+#X connect 13 0 12 0;
+#X connect 14 0 12 1;
+#X connect 16 0 15 1;
+#X connect 17 0 21 0;
+#X connect 18 0 21 1;
+#X connect 19 0 21 2;
+#X connect 20 0 21 4;
+#X connect 27 0 26 0;
+#X connect 28 0 26 1;
+#X connect 29 0 26 2;
+#X connect 33 0 21 3;
+#X connect 35 0 21 5;
+#X connect 49 0 46 1;
+#X connect 50 0 46 3;
+#X connect 53 0 54 1;
+#X connect 64 0 65 1;
+#X connect 66 0 72 0;
+#X connect 72 0 65 0;
+#X connect 74 0 46 2;
+#X connect 77 0 81 0;
+#X connect 77 0 86 0;
+#X connect 79 0 77 0;
+#X connect 80 0 77 1;
+#X connect 87 0 91 0;
+#X connect 89 0 90 0;
+#X connect 103 0 104 0;
+#X connect 103 0 123 0;
+#X connect 108 0 105 0;
+#X connect 108 0 131 0;
+#X connect 108 0 146 0;
+#X connect 108 1 106 0;
+#X connect 108 1 132 0;
+#X connect 108 2 107 0;
+#X connect 108 2 133 0;
+#X connect 109 0 113 0;
+#X connect 110 0 109 0;
+#X connect 111 0 109 0;
+#X connect 112 0 109 0;
+#X connect 113 0 114 0;
+#X connect 114 0 108 0;
+#X connect 114 1 108 1;
+#X connect 114 2 108 2;
+#X connect 115 0 112 0;
+#X connect 121 0 109 0;
+#X connect 122 0 121 0;
+#X connect 124 0 89 0;
+#X connect 125 0 128 0;
+#X connect 126 0 87 0;
+#X connect 127 0 129 0;
+#X connect 128 0 88 0;
+#X connect 128 0 160 0;
+#X connect 129 0 101 0;
+#X connect 136 0 146 1;
+#X connect 137 0 146 2;
+#X connect 146 0 103 0;
+#X connect 152 0 153 0;
+#X connect 153 1 150 0;
+#X connect 153 1 161 0;
+#X coords 0 0 1 1 85 60 0;

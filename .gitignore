@@ -1,0 +1,4 @@
+*.DS_Store
+/diagrams
+z-ignore
+z-private

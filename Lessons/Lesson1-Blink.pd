@@ -1,0 +1,9 @@
+#N canvas 828 698 450 300 10;
+#X obj 87 115 metro 1000;
+#X obj 87 154 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 87 75 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X text 84 22 Lesson 1: "Blink";
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
